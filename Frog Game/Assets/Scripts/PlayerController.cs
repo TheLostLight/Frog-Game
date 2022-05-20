@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         physics_body = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
@@ -25,9 +26,10 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void OnJump()
+    void OnJump(InputValue value)
     {
-        Debug.Log("Jump go!");
+        if (value.isPressed) Debug.Log("Jump go!");
+        else Debug.Log("Blast off~!");
     }
 
     void FixedUpdate()
