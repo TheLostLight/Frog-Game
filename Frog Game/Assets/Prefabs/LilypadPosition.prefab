@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6962137636349460953}
   - component: {fileID: 6962137636349460954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LilypadPosition
-  m_TagString: Untagged
+  m_TagString: sticky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7, y: 0.4, z: 7}
+  m_Size: {x: 6, y: 0.4, z: 6}
   m_Center: {x: 0.0005463064, y: 0, z: 0}
 --- !u!1 &7808980735529105296
 GameObject:
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 7427775224598555946}
   - component: {fileID: 5817271532416393871}
   - component: {fileID: 8601856505743611461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lillypad
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - sticky
+  - grappable
+  - sinkable
   layers:
   - Default
   - TransparentFX
@@ -11,10 +14,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - FeetLayer
+  - TongueLayer
+  - CoreLayer
+  - BodyLayer
   - 
   - 
   - 
@@ -40,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FeetLayer
+    uniqueID: 1359623561
+    locked: 0
+  - name: TongueLayer
+    uniqueID: 1698036373
     locked: 0
