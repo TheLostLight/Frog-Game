@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (grace_period == 0.0 && collision.gameObject.CompareTag("sticky"))
+        if (grace_period == 0.0f && (collision.gameObject.CompareTag("sticky") || collision.gameObject.CompareTag("goal")))
         {
             Debug.Log("Gravity off!");
             physics_body.useGravity = false;
@@ -154,6 +154,12 @@ public class PlayerController : MonoBehaviour
             frog_transform.eulerAngles = collision.transform.eulerAngles;
             frog_transform.Rotate(Vector3.up, old_y - frog_transform.eulerAngles.y, Space.Self);
             frog_transform.Translate(Vector3.up * (frog_transform.InverseTransformPoint(collision.transform.position).y), Space.Self);
+        }
+
+        if (collision.gameObject.CompareTag("goal"))
+        {
+            Debug.Log("Goal!!!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
