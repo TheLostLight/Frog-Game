@@ -155,6 +155,12 @@ public class PlayerController : MonoBehaviour
             frog_transform.Rotate(Vector3.up, old_y - frog_transform.eulerAngles.y, Space.Self);
             frog_transform.Translate(Vector3.up * (frog_transform.InverseTransformPoint(collision.transform.position).y), Space.Self);
         }
+        else if (collision.gameObject.CompareTag("grappable"))
+        {
+            Vector3 direction = collision.contacts[0].point - frog_transform.position;
+            direction.Normalize();
+            physics_body.AddForce(direction * 1000);
+        }
 
         if (collision.gameObject.CompareTag("goal"))
         {
