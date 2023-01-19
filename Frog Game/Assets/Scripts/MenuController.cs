@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class MenuController : MonoBehaviour
@@ -12,6 +13,10 @@ public class MenuController : MonoBehaviour
     
     public GameObject frog;
     public Transform[] pads;
+    public Animator transition;
+
+    private Animator frog_animator;
+    
 
     FROG_STATE current_state = FROG_STATE.RESTING;
     int current_pad = 0;
@@ -29,6 +34,8 @@ public class MenuController : MonoBehaviour
     {
         MAX_PAD = pads.Length - 1;
         current_position = pads[0].position;
+
+        frog_animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -39,12 +46,14 @@ public class MenuController : MonoBehaviour
             if (position_progress < 1.0f)
             {
                 position_progress += PROGRESS_STEP;
-                Vector3 updated_position = Vector3.Lerp(current_position, target_position, position_progress);
-                Vector3 halfway_point = Vector3.Lerp(current_position, target_position, 0.5f);
+                Vector3 updated_position = Vector3.Slerp(current_position, target_position, position_progress);
+                Vector3 halfway_point = Vector3.Slerp(current_position, target_position, 0.5f);
                 float halfway_distance = Vector3.Distance(current_position, halfway_point);
                 float updated_height = JUMP_PEAK_HEIGHT * ((halfway_distance - Vector3.Distance(updated_position, halfway_point)) / halfway_distance);
                 updated_position.y = updated_height;
                 frog.transform.position = updated_position;
+
+                frog_animator.SetBool("Jumping", true);
             }
             else
             {
@@ -52,6 +61,8 @@ public class MenuController : MonoBehaviour
                 current_position = target_position;
                 current_state = FROG_STATE.RESTING;
                 position_progress = 0.0f;
+
+                frog_animator.SetBool("Jumping", false);
             }
         }
     }
@@ -86,8 +97,16 @@ public class MenuController : MonoBehaviour
     {
         switch(current_pad)
         {
+            case 0: StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1)); break;
             case 3: Application.Quit(); Debug.Log("Quit ignored inside editor..."); break;
             default: Debug.Log("No action assigned to this pad..."); break;
         }
+    }
+
+    IEnumerator LoadLevel(int levelIndex) 
+    {
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(levelIndex);
     }
 }

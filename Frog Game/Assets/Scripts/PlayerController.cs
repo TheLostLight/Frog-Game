@@ -17,12 +17,16 @@ public class PlayerController : MonoBehaviour
     const float GRACE_DEFAULT   = 0.5f;
     const float MIN_TONGUE_SIZE = 0.01f;
     const float MAX_TONGUE_SIZE = 6.0f;
+    public float TONGUE_SPEED = 3.0f;
 
     Rigidbody physics_body;
     Transform frog_transform;
     Transform pivot_transform;
     Transform camera_transform;
     Transform tongue_transform;
+
+    private Animator froggyAnim;
+    private ParticleSystem Goop;
 
     bool is_charging = false;
     bool is_grounded = true; //If on ground or sticking to a wall
@@ -42,6 +46,9 @@ public class PlayerController : MonoBehaviour
         tongue_transform = frog_transform.GetChild(3).transform;
         tongue_transform.localScale = new Vector3(0.1f, MIN_TONGUE_SIZE, 0.1f);
         Cursor.lockState = CursorLockMode.Locked;
+
+        froggyAnim = GetComponentInChildren<Animator>();
+        Goop = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -58,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTongue(InputValue value)
     {
-        if (value.isPressed && tongue_state == TONGUE_STATE.READY) tongue_state = TONGUE_STATE.EXTENDING;
+        if (value.isPressed && tongue_state == TONGUE_STATE.READY) tongue_state = TONGUE_STATE.EXTENDING; froggyAnim.SetBool("Mouth Open", true);
     }
 
     void OnLook(InputValue look_value)
@@ -106,16 +113,19 @@ public class PlayerController : MonoBehaviour
             physics_body.useGravity = true;
             is_grounded = false;
             grace_period = GRACE_DEFAULT;
+
+            froggyAnim.SetBool("Jumping", true);
         }
 
         if (tongue_state == TONGUE_STATE.EXTENDING)
         {
-            Vector3 delta_tongue = new Vector3(0.0f, 5.0f, 0.0f)*Time.deltaTime;
+            Vector3 delta_tongue = new Vector3(0.0f, 5.0f, 0.0f)*Time.deltaTime * TONGUE_SPEED;
 
             tongue_transform.localScale += delta_tongue;
             tongue_transform.Translate(delta_tongue, Space.Self);
 
-            if(tongue_transform.localScale.y > MAX_TONGUE_SIZE)
+
+            if (tongue_transform.localScale.y > MAX_TONGUE_SIZE)
             {
                 tongue_transform.Translate(new Vector3(0.0f, MAX_TONGUE_SIZE - tongue_transform.localScale.y, 0.0f), Space.Self);
                 tongue_transform.localScale = new Vector3(0.1f, MAX_TONGUE_SIZE, 0.1f);
@@ -124,7 +134,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (tongue_state == TONGUE_STATE.RETRACTING)
         {
-            Vector3 delta_tongue = new Vector3(0.0f, -5.0f, 0.0f) * Time.deltaTime;
+            Vector3 delta_tongue = new Vector3(0.0f, -5.0f, 0.0f) * Time.deltaTime * TONGUE_SPEED;
 
             tongue_transform.localScale += delta_tongue;
             tongue_transform.Translate(delta_tongue, Space.Self);
@@ -134,6 +144,8 @@ public class PlayerController : MonoBehaviour
                 tongue_transform.Translate(new Vector3(0.0f, MIN_TONGUE_SIZE - tongue_transform.localScale.y), Space.Self);
                 tongue_transform.localScale = new Vector3(0.1f, MIN_TONGUE_SIZE, 0.1f);
                 tongue_state = TONGUE_STATE.READY;
+
+                froggyAnim.SetBool("Mouth Open", false);
             }
         }
     }
@@ -154,6 +166,9 @@ public class PlayerController : MonoBehaviour
             frog_transform.eulerAngles = collision.transform.eulerAngles;
             frog_transform.Rotate(Vector3.up, old_y - frog_transform.eulerAngles.y, Space.Self);
             frog_transform.Translate(Vector3.up * (frog_transform.InverseTransformPoint(collision.transform.position).y), Space.Self);
+
+            froggyAnim.SetBool("Jumping", false);
+            Goop.Play();
         }
         else if (collision.gameObject.CompareTag("grappable"))
         {

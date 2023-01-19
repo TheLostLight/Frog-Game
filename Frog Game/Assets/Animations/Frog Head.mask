@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Frog Head
+  m_Mask: 00000000010000000100000000000000000000000000000000000000010000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/Elbow.IK.L
+    m_Weight: 0
+  - m_Path: Armature/Elbow.IK.L/Elbow.IK.L_end
+    m_Weight: 0
+  - m_Path: Armature/Elbow.IK.R
+    m_Weight: 0
+  - m_Path: Armature/Elbow.IK.R/Elbow.IK.R_end
+    m_Weight: 0
+  - m_Path: Armature/Foot.IK.L
+    m_Weight: 0
+  - m_Path: Armature/Foot.IK.L/Foot.IK.L_end
+    m_Weight: 0
+  - m_Path: Armature/Foot.IK.R
+    m_Weight: 0
+  - m_Path: Armature/Foot.IK.R/Foot.IK.R_end
+    m_Weight: 0
+  - m_Path: Armature/Hand.IK.L
+    m_Weight: 0
+  - m_Path: Armature/Hand.IK.L/Hand.IK.L_end
+    m_Weight: 0
+  - m_Path: Armature/Hand.IK.R
+    m_Weight: 0
+  - m_Path: Armature/Hand.IK.R/Hand.IK.R_end
+    m_Weight: 0
+  - m_Path: Armature/Knee.IK.L
+    m_Weight: 0
+  - m_Path: Armature/Knee.IK.L/Knee.IK.L_end
+    m_Weight: 0
+  - m_Path: Armature/Knee.IK.R
+    m_Weight: 0
+  - m_Path: Armature/Knee.IK.R/Knee.IK.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root
+    m_Weight: 0
+  - m_Path: Armature/Root/Arm.L.001
+    m_Weight: 0
+  - m_Path: Armature/Root/Arm.L.001/Arm.L.002
+    m_Weight: 0
+  - m_Path: Armature/Root/Arm.L.001/Arm.L.002/Arm.L.003
+    m_Weight: 0
+  - m_Path: Armature/Root/Arm.L.001/Arm.L.002/Arm.L.003/Arm.L.003_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Arm.R.001
+    m_Weight: 0
+  - m_Path: Armature/Root/Arm.R.001/Arm.R.002
+    m_Weight: 0
+  - m_Path: Armature/Root/Arm.R.001/Arm.R.002/Arm.R.003
+    m_Weight: 0
+  - m_Path: Armature/Root/Arm.R.001/Arm.R.002/Arm.R.003/Arm.R.003_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg.L.001
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg.L.001/Leg.L.002
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg.L.001/Leg.L.002/Leg.L.003
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg.L.001/Leg.L.002/Leg.L.003/Leg.L.003_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg.R.001
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg.R.001/Leg.R.002
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg.R.001/Leg.R.002/Leg.R.003
+    m_Weight: 0
+  - m_Path: Armature/Root/Leg.R.001/Leg.R.002/Leg.R.003/Leg.R.003_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Spine.1
+    m_Weight: 0
+  - m_Path: Armature/Root/Spine.1/Spine.002
+    m_Weight: 1
+  - m_Path: Armature/Root/Spine.1/Spine.002/Spine.003
+    m_Weight: 1
+  - m_Path: Armature/Root/Spine.1/Spine.002/Spine.003/Eye.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Spine.1/Spine.002/Spine.003/Eye.L/Eye.L_end
+    m_Weight: 1
+  - m_Path: Armature/Root/Spine.1/Spine.002/Spine.003/Eye.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Spine.1/Spine.002/Spine.003/Eye.R/Eye.R_end
+    m_Weight: 1
+  - m_Path: Armature/Root/Spine.1/Spine.002/Spine.003/Head
+    m_Weight: 1
+  - m_Path: Armature/Root/Spine.1/Spine.002/Spine.003/Head/Head_end
+    m_Weight: 1
+  - m_Path: Armature/Root/Spine.1/Spine.002/Spine.003/Jaw
+    m_Weight: 1
+  - m_Path: Armature/Root/Spine.1/Spine.002/Spine.003/Jaw/Jaw_end
+    m_Weight: 1
+  - m_Path: Cube
+    m_Weight: 0

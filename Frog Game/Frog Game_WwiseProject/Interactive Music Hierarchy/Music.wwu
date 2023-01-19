@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3F06BC9C-1576-41A4-ACF8-BB0FC37E2228}" SchemaVersion="110">
+	<InteractiveMusic>
+		<WorkUnit Name="Music" ID="{3F06BC9C-1576-41A4-ACF8-BB0FC37E2228}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSegment Name="Fast_Frogs" ID="{0CE89738-E78A-4B30-9C26-4EDE2C7E613A}" ShortID="500550139">
+					<PropertyList>
+						<Property Name="EndPosition" Type="Real64" Value="93447.4793960532"/>
+						<Property Name="GridOffsetPreset" Type="int16" Value="52"/>
+						<Property Name="Tempo" Type="Real64" Value="150"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DE3C0680-0ADA-453F-84DC-69B6978F1D3A}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{67258DCA-1C6C-43B3-AF50-957361A6DC97}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicTrack Name="Fast_Frogs" ID="{13DC4156-87F0-4CE7-A715-FA430DB2317B}" ShortID="255546008">
+							<ReferenceList>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{67258DCA-1C6C-43B3-AF50-957361A6DC97}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Fast_Frogs" ID="{91C11674-11C5-4AB1-8A09-735505B23BF9}">
+									<Language>SFX</Language>
+									<AudioFile>Fast_Frogs.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="583882199"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{34E541ED-4AFE-4C4C-8A96-B568E6B5D75C}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<ObjectLists>
+								<ObjectList Name="Sequences">
+									<Reference>
+										<Local>
+											<MusicTrackSequence Name="" ID="{99C4DFB8-29D0-4D29-92F6-25ABBDD4232B}">
+												<ObjectLists>
+													<ObjectList Name="Clips">
+														<Reference>
+															<Local>
+																<MusicClip Name="Fast_Frogs" ID="{1327446A-5959-4B51-BDA5-B865DE3F693A}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="78199.977324263"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="Fast_Frogs" ID="{91C11674-11C5-4AB1-8A09-735505B23BF9}"/>
+																</MusicClip>
+															</Local>
+														</Reference>
+													</ObjectList>
+												</ObjectLists>
+											</MusicTrackSequence>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicTrack>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Cues">
+							<Reference>
+								<Local>
+									<MusicCue Name="Entry Cue" ID="{AAB2E697-5B88-423F-B3EA-D04F7454666B}">
+										<PropertyList>
+											<Property Name="TimeMs" Type="Real64" Value="1600"/>
+										</PropertyList>
+									</MusicCue>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicCue Name="Exit Cue" ID="{C5E01BCD-E9E1-4A92-B50F-E0D397AA9412}">
+										<PropertyList>
+											<Property Name="CueType" Type="int16" Value="1"/>
+											<Property Name="TimeMs" Type="Real64" Value="73600"/>
+										</PropertyList>
+									</MusicCue>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicSegment>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>
